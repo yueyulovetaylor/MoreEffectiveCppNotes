@@ -92,12 +92,18 @@
             EquipmentPiece(ID10)
           };
           ```
-        * Approach 2: Use an array of pointers. Please refer to the following examples. Disadvantage would be the need to delete all objects pointed to by the array, and total amount of memory will increase due to the need to more pointers.
+        * Approach 2: Use an array of pointers. Please refer to the following examples.
           ```C++
           EquipmentPiece * bestPieces[10];
           for (int i = 0; i < 10; ++i) {
             bestPieces[i] = new EquipmentPiece(some ID);
           }
           ```
+          * Disadvantages of this approach:
+            * Have to remember to delete all objects pointed to by the array
+            * Total amount of memory will increase due to the need to more pointers
     ### Problem 2: Ineligible for use with many template-based container classes
+      Please keep in mind that **it is a common requirement that the type used to instantiate the template should provide a default constructor**.
     ### Problem 3: Virtual base classes lacking default constructors are a pain to work with
+      If base class does not provide a default constructor, authors of derived class must know about, understanding the meaning of and provide virtual base class's constructor's argument(s), which is painful.
+      
